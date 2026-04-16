@@ -54,7 +54,7 @@ export default function FAQ() {
               <div key={faq.q} className="faq-item py-0">
                 <dt>
                   <button
-                    className="faq-question w-full flex items-start justify-between gap-6 py-6 text-left"
+                    className="faq-question w-full flex items-start justify-between gap-6 py-6 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sienna"
                     onClick={() => setOpen(isOpen ? null : i)}
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${i}`}

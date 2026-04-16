@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState, useCallback } from 'react'
-import type { RefObject } from 'react'
 import { cn } from '@/lib/utils'
 
 const BAR_COUNT = 52
@@ -225,15 +224,16 @@ export default function AudioPlayer({ src = '/sample-brief.mp3', className }: Au
       {/* Player card */}
       <div
         className="rounded-none border border-rule bg-paper-dark px-6 py-5 sm:px-8 sm:py-6"
-        style={{ boxShadow: '4px 4px 0 oklch(81% 0.012 80)' }}
+        style={{ boxShadow: '6px 6px 0 oklch(35% 0.018 55)' }}
       >
         {/* Label */}
         <div className="flex items-center justify-between mb-4">
           <span
             className="font-mono text-label text-muted small-caps tracking-wider"
             aria-label="Sample briefing audio"
+            suppressHydrationWarning
           >
-            The Brief — Tue Apr 15, 6:15am
+            The Brief — {formatBriefDate()}
           </span>
           {hasAudio && (
             <span className="font-mono text-label text-muted tabular-nums">
@@ -307,6 +307,18 @@ export default function AudioPlayer({ src = '/sample-brief.mp3', className }: Au
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────
+function formatBriefDate(): string {
+  const d = new Date()
+  const day = d.toLocaleDateString('en-AU', { weekday: 'short' })
+  const month = d.toLocaleDateString('en-AU', { month: 'short' })
+  const date = d.getDate()
+  const hours = d.getHours()
+  const minutes = d.getMinutes().toString().padStart(2, '0')
+  const ampm = hours < 12 ? 'am' : 'pm'
+  const h12 = hours % 12 === 0 ? 12 : hours % 12
+  return `${day} ${month} ${date}, ${h12}:${minutes}${ampm}`
+}
+
 function formatDuration(s: number): string {
   if (!s || isNaN(s)) return '0:00'
   const m = Math.floor(s / 60)

@@ -1,10 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import AudioPlayer from './AudioPlayer'
 import EmailCapture from './EmailCapture'
-import { formatDateline } from '@/lib/utils'
 
 interface HeroProps {
   variant: 'a' | 'b'
@@ -16,15 +14,6 @@ const HEADLINES = {
 }
 
 export default function Hero({ variant }: HeroProps) {
-  const [dateline, setDateline] = useState('')
-
-  useEffect(() => {
-    setDateline(formatDateline())
-    // Update the dateline every minute — subtle scroll-linked feel
-    const interval = setInterval(() => setDateline(formatDateline()), 60_000)
-    return () => clearInterval(interval)
-  }, [])
-
   const headline = HEADLINES[variant]
 
   const ease = [0.16, 1, 0.3, 1] as [number, number, number, number]
@@ -90,8 +79,9 @@ export default function Hero({ variant }: HeroProps) {
         {/* Column rule */}
         <div className="hidden lg:block bg-rule" aria-hidden="true" />
 
-        {/* Right column — Audio + email */}
-        <motion.div variants={stagger.item} className="lg:pl-12 pt-12 lg:pt-0 flex flex-col gap-8">
+        {/* Right column — Audio + email. Offset on desktop so the player lands below
+            the headline's first line, creating a visual lead from left→right↓ */}
+        <motion.div variants={stagger.item} className="lg:pl-12 pt-12 lg:pt-16 flex flex-col gap-8">
           <div>
             <p className="font-mono text-label text-muted small-caps mb-4 tracking-wider">
               Press play &darr;

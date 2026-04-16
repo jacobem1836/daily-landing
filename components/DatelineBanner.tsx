@@ -44,7 +44,7 @@ export default function DatelineBanner() {
         {/* CTA — compact */}
         <a
           href="#hero"
-          className="font-mono text-label text-paper bg-ink px-3 py-1.5 hover:bg-sienna transition-colors duration-150 whitespace-nowrap"
+          className="font-mono text-label text-paper bg-ink px-4 py-2.5 min-h-[44px] flex items-center hover:bg-sienna transition-colors duration-150 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sienna"
           aria-label="Join the waitlist"
         >
           Join waitlist →

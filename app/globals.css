@@ -14,8 +14,27 @@
   --ink-light:   oklch(35% 0.018 55);
   --sienna:      oklch(52% 0.155 48);
   --sienna-pale: oklch(92% 0.035 70);
-  --muted:       oklch(50% 0.018 65);
+  --muted:       oklch(44% 0.018 65);
   --rule:        oklch(81% 0.012 80);
+
+  /* Spacing — Major Third scale (×1.25 from 0.25rem = 4px)
+     sp-1=4px  sp-2=5px  sp-3=6.25px sp-4=7.8px  sp-5=9.8px
+     sp-6=12.2px sp-7=15.25px sp-8=19px sp-9=23.8px sp-10=29.8px
+     sp-11=37.3px sp-12=46.6px sp-13=58.2px sp-14=72.75px      */
+  --sp-1:  0.25rem;
+  --sp-2:  0.3125rem;
+  --sp-3:  0.390625rem;
+  --sp-4:  0.488rem;
+  --sp-5:  0.610rem;
+  --sp-6:  0.763rem;
+  --sp-7:  0.953rem;
+  --sp-8:  1.192rem;
+  --sp-9:  1.49rem;
+  --sp-10: 1.863rem;
+  --sp-11: 2.329rem;
+  --sp-12: 2.911rem;
+  --sp-13: 3.638rem;
+  --sp-14: 4.548rem;
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
