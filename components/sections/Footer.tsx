@@ -9,11 +9,11 @@ export default function Footer() {
         </div>
 
         <a
-          href="mailto:hello@daily.so"
+          href="mailto:hello@getdaily.dev"
           className="font-mono text-label text-muted hover:text-sienna transition-colors duration-150"
           aria-label="Email Jacob"
         >
-          hello@daily.so
+          hello@getdaily.dev
         </a>
       </div>
     </footer>

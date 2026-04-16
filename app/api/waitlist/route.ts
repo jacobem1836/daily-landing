@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
     // 1. Send confirmation to the subscriber
     await resend.emails.send({
-      from:    'Jacob <hello@daily.so>',  // Update domain once you have it
+      from:    'Jacob <hello@getdaily.dev>',  // Update domain once you have it
       to:      email,
       subject: "You're in.",
       text: `Hey —
@@ -56,7 +56,7 @@ Brisbane`,
     // 2. Notify yourself
     if (process.env.NOTIFICATION_EMAIL) {
       await resend.emails.send({
-        from:    'dAIly Waitlist <hello@daily.so>',
+        from:    'dAIly Waitlist <hello@getdaily.dev>',
         to:      process.env.NOTIFICATION_EMAIL,
         subject: `New waitlist signup: ${email}`,
         text: `Email: ${email}\nVariant: ${variant}\nReferrer: ${referrer ?? 'direct'}\nTime: ${new Date().toISOString()}`,

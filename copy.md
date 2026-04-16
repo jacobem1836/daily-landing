@@ -113,7 +113,7 @@ Single source of truth for all user-facing text. Update here, then update the co
 ## Footer
 
 - `dAIly — built by a solo founder in Brisbane. 2026.`
-- Contact: `hello@daily.so`
+- Contact: `hello@getdaily.dev`
 
 ---
 
