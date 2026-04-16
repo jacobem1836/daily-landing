@@ -27,6 +27,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://getdaily.dev'),
   title: 'dAIly — Your life briefs you.',
   description:
     'A 90-second executive briefing, spoken to you every morning. Your email, calendar, Slack, and messages — synthesised, prioritised, and read to you before you open a single app.',
