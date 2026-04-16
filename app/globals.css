@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   Design Tokens
+───────────────────────────────────────── */
+:root {
+  /* Palette — warm editorial */
+  --paper:       oklch(97.2% 0.011 85);
+  --paper-dark:  oklch(93.5% 0.015 82);
+  --paper-mid:   oklch(90% 0.018 80);
+  --ink:         oklch(16% 0.018 55);
+  --ink-light:   oklch(35% 0.018 55);
+  --sienna:      oklch(52% 0.155 48);
+  --sienna-pale: oklch(92% 0.035 70);
+  --muted:       oklch(50% 0.018 65);
+  --rule:        oklch(81% 0.012 80);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-quart: cubic-bezier(0.5, 0, 0.75, 0);
+  --duration-fast:   150ms;
+  --duration-normal: 300ms;
+  --duration-slow:   600ms;
+}
+
+/* ─────────────────────────────────────────
+   Base
+───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────
+   Typography utilities
+───────────────────────────────────────── */
+.font-optical-sm {
+  font-variation-settings: "opsz" 12;
+}
+.font-optical-display {
+  font-variation-settings: "opsz" 72;
+}
+.font-optical-headline {
+  font-variation-settings: "opsz" 36;
+}
+
+/* Small caps for labels */
+.small-caps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+}
+
+/* ─────────────────────────────────────────
+   Column rules — newspaper feel
+───────────────────────────────────────── */
+.col-rule {
+  border-right: 1px solid var(--rule);
+}
+
+.section-rule {
+  border-top: 1px solid var(--ink);
+}
+
+.section-rule-muted {
+  border-top: 1px solid var(--rule);
+}
+
+/* ─────────────────────────────────────────
+   Grain overlay — Concept C tactility
+───────────────────────────────────────── */
+.grain-overlay {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.032;
+  pointer-events: none;
+  animation: grain 0.4s steps(1) infinite;
+  z-index: 10;
+}
+
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-1%, -1%); }
+  20%  { transform: translate(2%, 1%); }
+  30%  { transform: translate(-1%, 2%); }
+  40%  { transform: translate(1%, -1%); }
+  50%  { transform: translate(-2%, 1%); }
+  60%  { transform: translate(2%, -2%); }
+  70%  { transform: translate(-1%, 1%); }
+  80%  { transform: translate(1%, 2%); }
+  90%  { transform: translate(-2%, -1%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ─────────────────────────────────────────
+   Audio Player
+───────────────────────────────────────── */
+.waveform-bar {
+  background-color: var(--ink-light);
+  border-radius: 1px;
+  transform-origin: bottom;
+  transition: background-color var(--duration-fast) ease;
+  will-change: transform;
+}
+
+.waveform-bar.active {
+  background-color: var(--sienna);
+}
+
+.play-button {
+  background-color: var(--ink);
+  color: var(--paper);
+  transition:
+    transform var(--duration-normal) var(--ease-out-expo),
+    background-color var(--duration-fast) ease;
+}
+
+.play-button:hover {
+  transform: scale(1.06);
+  background-color: var(--sienna);
+}
+
+.play-button:active {
+  transform: scale(0.97);
+}
+
+/* ─────────────────────────────────────────
+   Email input
+───────────────────────────────────────── */
+.email-input {
+  background-color: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  transition: border-color var(--duration-normal) ease;
+  caret-color: var(--sienna);
+}
+
+.email-input::placeholder {
+  color: var(--muted);
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.email-input:focus-within {
+  border-color: var(--sienna);
+}
+
+.submit-btn {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  transition:
+    background-color var(--duration-fast) ease,
+    transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.submit-btn:hover {
+  background-color: var(--sienna);
+  transform: translateX(2px);
+}
+
+.submit-btn:active {
+  transform: translateX(0);
+}
+
+/* ─────────────────────────────────────────
+   FAQ accordion
+───────────────────────────────────────── */
+.faq-item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.faq-question {
+  cursor: pointer;
+  transition: color var(--duration-fast) ease;
+}
+
+.faq-question:hover {
+  color: var(--sienna);
+}
+
+/* ─────────────────────────────────────────
+   Reduced motion
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .grain-overlay::after {
+    animation: none;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Print
+───────────────────────────────────────── */
+@media print {
+  .grain-overlay::after {
+    display: none;
+  }
+}
