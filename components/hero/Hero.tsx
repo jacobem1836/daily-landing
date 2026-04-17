@@ -91,7 +91,7 @@ export default function Hero({ variant }: HeroProps) {
             <AudioPlayer src="/sample-brief.mp3" />
           </div>
 
-          <div className="section-rule-muted pt-8">
+          <div id="waitlist" className="section-rule-muted pt-8">
             <EmailCapture variant={variant} />
           </div>
         </motion.div>
