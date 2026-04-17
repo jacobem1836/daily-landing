@@ -26,9 +26,15 @@ export default function Footer() {
 
         <div>
           <p className="font-mono text-label text-sienna tracking-widest small-caps mb-2">Built by</p>
-          <p className="font-mono text-label text-ink">
+          <a
+            href="https://x.com/jacobemarriott1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-label text-ink hover:text-sienna transition-colors duration-150"
+            aria-label="Jacob Marriott on X"
+          >
             Jacob Marriott — Brisbane
-          </p>
+          </a>
         </div>
       </div>
 
