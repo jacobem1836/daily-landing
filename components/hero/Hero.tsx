@@ -102,7 +102,7 @@ export default function Hero({ variant }: HeroProps) {
         variants={stagger.item}
         initial="hidden"
         animate="visible"
-        className="pt-4 mt-12 lg:mt-16 flex items-center justify-between"
+        className="section-rule pt-4 mt-12 lg:mt-16 flex items-center justify-between"
       >
         <span className="font-mono text-label text-muted">Built for operators. Brisbane, 2026.</span>
         <span className="font-mono text-label text-muted hidden sm:block">M1 — Early Access</span>

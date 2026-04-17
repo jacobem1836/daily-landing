@@ -47,11 +47,6 @@ export default async function Page({ searchParams }: PageProps) {
         {/* ── 1. Hero ── */}
         <Hero variant={variant} />
 
-        {/* ── Section divider ── */}
-        <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
-          <hr className="border-rule" />
-        </div>
-
         {/* ── 2. The Ritual ── */}
         <TheRitual />
 
