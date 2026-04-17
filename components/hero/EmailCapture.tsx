@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 
 interface EmailCaptureProps {
@@ -14,7 +14,15 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
   const [email,  setEmail]  = useState('')
   const [state,  setState]  = useState<State>('idle')
   const [errMsg, setErrMsg] = useState('')
+  const [count,  setCount]  = useState<number>(127)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    fetch('/api/waitlist/count')
+      .then((r) => r.json())
+      .then((d) => { if (typeof d.count === 'number') setCount(d.count) })
+      .catch(() => {})
+  }, [])
 
   const submit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
@@ -104,7 +112,7 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
       )}
 
       <p className="mt-2 font-mono text-label text-muted">
-        Early access &mdash; 127 of 500 spots taken.
+        Early access &mdash; {count} of 500 spots taken.
         &ensp;No spam. One email when it&rsquo;s ready.
       </p>
     </div>

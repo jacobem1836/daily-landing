@@ -3,7 +3,7 @@ import { Resend } from 'resend'
 
 export const preferredRegion = 'syd1'
 
-const WAITLIST_COUNT = 127
+const WAITLIST_COUNT_FALLBACK = 127
 
 function getResend(): Resend {
   const key = process.env.RESEND_API_KEY
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       subject: "You're in.",
       text: `Hey —
 
-You just joined the dAIly waitlist. You're #${WAITLIST_COUNT + 1}.
+You just joined the dAIly waitlist. You're #${signupNumber}.
 
 I'm Jacob. I'm building this solo, part-time, carefully. No VC, no hype, no shipping-before-it's-ready.
 
@@ -53,11 +53,14 @@ That's it. Go have a calm morning.
 Brisbane`,
     })
 
-    // 2. Add to Resend contacts
+    // 2. Add to Resend contacts + get live count for email
     const audienceId = process.env.RESEND_AUDIENCE_ID
+    let signupNumber = WAITLIST_COUNT_FALLBACK + 1
     if (audienceId) {
       try {
         await resend.contacts.create({ email, audienceId, unsubscribed: false })
+        const { data: contacts } = await resend.contacts.list({ audienceId })
+        signupNumber = contacts?.data?.length ?? signupNumber
       } catch (err) {
         console.error('[waitlist] Contact create failed:', err)
       }
