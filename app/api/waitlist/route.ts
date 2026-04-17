@@ -28,8 +28,9 @@ async function getOrCreateAudienceId(resend: Resend): Promise<string> {
   }
 
   // Create it — logs the ID so you can set RESEND_AUDIENCE_ID and skip this next time
-  const { data: created } = await resend.audiences.create({ name: AUDIENCE_NAME })
-  cachedAudienceId = created!.id
+  const { data: created, error } = await resend.audiences.create({ name: AUDIENCE_NAME })
+  if (error || !created) throw new Error(`Failed to create Resend Audience: ${JSON.stringify(error)}`)
+  cachedAudienceId = created.id
   console.log('[waitlist] Created Resend Audience. Set RESEND_AUDIENCE_ID =', cachedAudienceId)
   return cachedAudienceId
 }
@@ -76,9 +77,13 @@ That's it. Go have a calm morning.
 Brisbane`,
     })
 
-    // 2. Add to Resend Audience (auto-creates if not configured)
-    const audienceId = await getOrCreateAudienceId(resend)
-    await resend.contacts.create({ email, audienceId, unsubscribed: false })
+    // 2. Add to Resend Audience (non-blocking — don't let this fail the whole request)
+    try {
+      const audienceId = await getOrCreateAudienceId(resend)
+      await resend.contacts.create({ email, audienceId, unsubscribed: false })
+    } catch (audienceErr) {
+      console.error('[waitlist] Audience error:', audienceErr)
+    }
 
     // 3. Notify yourself
     if (process.env.NOTIFICATION_EMAIL) {
