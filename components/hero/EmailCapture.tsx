@@ -135,7 +135,7 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
       )}
 
       <p className="mt-2 font-mono text-label text-muted">
-        Early access &mdash;{' '}{count} of 500 spots taken.
+        Early access &mdash;{' '}{count}{' '}of 500 spots taken.
         &ensp;No spam. One email when it&rsquo;s ready.
       </p>
     </div>
