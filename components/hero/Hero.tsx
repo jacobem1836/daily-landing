@@ -91,7 +91,7 @@ export default function Hero({ variant }: HeroProps) {
             <AudioPlayer src="/sample-brief.mp3" />
           </div>
 
-          <div id="waitlist" className="section-rule-muted pt-8">
+          <div id="waitlist" className="section-rule-muted pt-8" style={{ scrollMarginTop: '5rem' }}>
             <EmailCapture variant={variant} />
           </div>
         </motion.div>
@@ -102,7 +102,7 @@ export default function Hero({ variant }: HeroProps) {
         variants={stagger.item}
         initial="hidden"
         animate="visible"
-        className="section-rule pt-4 mt-12 lg:mt-16 flex items-center justify-between"
+        className="pt-4 mt-12 lg:mt-16 flex items-center justify-between"
       >
         <span className="font-mono text-label text-muted">Built for operators. Brisbane, 2026.</span>
         <span className="font-mono text-label text-muted hidden sm:block">M1 — Early Access</span>
