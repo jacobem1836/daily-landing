@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 export const preferredRegion = 'syd1'
 
 const BASE_COUNT    = 127 // Pre-Resend signups
-const MAX_CONTACTS  = 100 // Cap on Resend contacts before closing waitlist
+const MAX_CONTACTS  = 500 // Cap on Resend contacts before closing waitlist
 
 // Cache contact count in module scope — avoids a contacts.list call on every signup
 let cachedContactCount: number | null = null
@@ -55,7 +55,9 @@ export async function POST(req: NextRequest) {
       await delay(500)
       await resend.contacts.create({ email, audienceId, unsubscribed: false })
       cachedContactCount = currentCount + 1
-      signupNumber = BASE_COUNT + cachedContactCount
+      signupNumber = cachedContactCount < 100
+        ? BASE_COUNT + cachedContactCount
+        : cachedContactCount
     }
 
     // 2. Send confirmation to the subscriber
