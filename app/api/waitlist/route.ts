@@ -53,12 +53,14 @@ That's it. Go have a calm morning.
 Brisbane`,
     })
 
-    // 2. Add to Resend Audience (non-blocking)
+    // 2. Add to Resend contacts
     const audienceId = process.env.RESEND_AUDIENCE_ID
     if (audienceId) {
-      resend.contacts.create({ email, audienceId, unsubscribed: false }).catch((err) => {
+      try {
+        await resend.contacts.create({ email, audienceId, unsubscribed: false })
+      } catch (err) {
         console.error('[waitlist] Contact create failed:', err)
-      })
+      }
     }
 
     // 3. Notify yourself
