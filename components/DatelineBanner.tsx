@@ -8,6 +8,8 @@ export default function DatelineBanner() {
 
   useEffect(() => {
     setDateline(formatDateline())
+    const interval = setInterval(() => setDateline(formatDateline()), 60_000)
+    return () => clearInterval(interval)
   }, [])
 
   return (

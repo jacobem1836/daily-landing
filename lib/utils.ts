@@ -5,7 +5,12 @@ export function formatDateline(date: Date = new Date()): string {
   const dayName = date.toLocaleDateString('en-AU', { weekday: 'long' })
   const month   = date.toLocaleDateString('en-AU', { month: 'long' })
   const day     = date.getDate()
-  return `${dayName}, ${month} ${day} — 6:15am`
+  const hours   = date.getHours()
+  const minutes = date.getMinutes().toString().padStart(2, '0')
+  const ampm    = hours < 12 ? 'am' : 'pm'
+  const h12     = hours % 12 === 0 ? 12 : hours % 12
+
+  return `${dayName}, ${month} ${day} — ${h12}:${minutes}${ampm}`
 }
 
 /** Format time only: "6:15am" */
