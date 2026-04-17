@@ -42,13 +42,14 @@ export default function DatelineBanner() {
         </time>
 
         {/* CTA — compact */}
-        <a
-          href="#waitlist"
+        <button
+          type="button"
+          onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
           className="font-mono text-label text-paper bg-ink px-4 py-2.5 min-h-[44px] flex items-center hover:bg-sienna transition-colors duration-150 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sienna"
           aria-label="Join the waitlist"
         >
           Join waitlist →
-        </a>
+        </button>
       </div>
     </header>
   )
