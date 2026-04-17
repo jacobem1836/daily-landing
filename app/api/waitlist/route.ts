@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
+export const preferredRegion = 'syd1'
+
 const WAITLIST_COUNT = 127 // Hardcoded for now — update manually or wire to a DB
 const AUDIENCE_NAME  = 'dAIly Waitlist'
 
