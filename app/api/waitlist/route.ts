@@ -2,12 +2,34 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 const WAITLIST_COUNT = 127 // Hardcoded for now — update manually or wire to a DB
+const AUDIENCE_NAME  = 'dAIly Waitlist'
 
-// Lazy-initialized so build doesn't fail without env vars
+// Cached in module scope — persists for the lifetime of the function instance
+let cachedAudienceId: string | null = null
+
 function getResend(): Resend {
   const key = process.env.RESEND_API_KEY
   if (!key) throw new Error('RESEND_API_KEY not configured')
   return new Resend(key)
+}
+
+async function getOrCreateAudienceId(resend: Resend): Promise<string> {
+  if (process.env.RESEND_AUDIENCE_ID) return process.env.RESEND_AUDIENCE_ID
+  if (cachedAudienceId) return cachedAudienceId
+
+  // Find existing audience by name
+  const { data: list } = await resend.audiences.list()
+  const existing = (list?.data ?? []).find((a: { id: string; name: string }) => a.name === AUDIENCE_NAME)
+  if (existing) {
+    cachedAudienceId = existing.id
+    return existing.id
+  }
+
+  // Create it — logs the ID so you can set RESEND_AUDIENCE_ID and skip this next time
+  const { data: created } = await resend.audiences.create({ name: AUDIENCE_NAME })
+  cachedAudienceId = created!.id
+  console.log('[waitlist] Created Resend Audience. Set RESEND_AUDIENCE_ID =', cachedAudienceId)
+  return cachedAudienceId
 }
 
 export async function POST(req: NextRequest) {
@@ -19,7 +41,6 @@ export async function POST(req: NextRequest) {
       referrer?: string
     }
 
-    // Basic validation
     if (!email || typeof email !== 'string') {
       return NextResponse.json({ error: 'Email required.' }, { status: 400 })
     }
@@ -53,14 +74,9 @@ That's it. Go have a calm morning.
 Brisbane`,
     })
 
-    // 2. Add to Resend Audience
-    if (process.env.RESEND_AUDIENCE_ID) {
-      await resend.contacts.create({
-        email,
-        audienceId: process.env.RESEND_AUDIENCE_ID,
-        unsubscribed: false,
-      })
-    }
+    // 2. Add to Resend Audience (auto-creates if not configured)
+    const audienceId = await getOrCreateAudienceId(resend)
+    await resend.contacts.create({ email, audienceId, unsubscribed: false })
 
     // 3. Notify yourself
     if (process.env.NOTIFICATION_EMAIL) {
@@ -75,7 +91,6 @@ Brisbane`,
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[waitlist]', err)
-    // Return success anyway — don't block on email failure
     return NextResponse.json({ ok: true })
   }
 }
