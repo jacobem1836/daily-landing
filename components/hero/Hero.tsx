@@ -67,12 +67,14 @@ export default function Hero({ variant }: HeroProps) {
 
           <p className="font-serif font-optical-sm text-pull text-muted leading-relaxed max-w-md">
             A 90-second executive briefing, spoken to you every morning. Your email, calendar, Slack,
-            and messages &mdash; synthesised, prioritised, and read to you before you open a single app.
+            news, and messages &mdash; synthesised, prioritised, and read to you before you open a
+            single app. Fully customisable &mdash; choose your sources, set your brief time, tune
+            what matters.
           </p>
 
           {/* Source citations — newspaper convention */}
           <p className="mt-8 font-mono text-label text-muted">
-            Gmail · Calendar · Slack · Messages
+            Gmail · Calendar · Slack · News · Messages
           </p>
         </motion.div>
 

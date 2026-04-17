@@ -99,7 +99,7 @@ export default async function OGImage() {
               A 90-second executive briefing, spoken to you every morning. Built for operators.
             </span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '8px' }}>
-              {['Gmail', 'Calendar', 'Slack', 'Messages'].map((s) => (
+              {['Gmail', 'Calendar', 'Slack', 'News', 'Messages'].map((s) => (
                 <span
                   key={s}
                   style={{

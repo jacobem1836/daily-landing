@@ -44,12 +44,12 @@ export const metadata: Metadata = {
     title: 'dAIly — Your life briefs you.',
     description:
       'A 90-second executive briefing, spoken to you every morning. Built for operators.',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
     follow: true,
   },
-  // Favicons — add /public/favicon.ico and /public/icon.png
 }
 
 export default function RootLayout({
