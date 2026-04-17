@@ -38,6 +38,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     siteName: 'dAIly',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'dAIly — Your life briefs you.' }],
   },
   twitter: {
     card: 'summary_large_image',
