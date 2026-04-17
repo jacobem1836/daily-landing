@@ -15,8 +15,9 @@ export async function GET() {
   try {
     const resend = new Resend(apiKey)
     const { data } = await resend.contacts.list({ audienceId })
-    const count = data?.data?.length ?? 127
-    return NextResponse.json({ count })
+    const contacts = data?.data?.length ?? 0
+    const full     = contacts >= 100
+    return NextResponse.json({ count: 127 + contacts, full })
   } catch {
     return NextResponse.json({ count: 127 })
   }

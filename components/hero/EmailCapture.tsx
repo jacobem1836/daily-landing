@@ -8,7 +8,7 @@ interface EmailCaptureProps {
   className?: string
 }
 
-type State = 'idle' | 'loading' | 'success' | 'error'
+type State = 'idle' | 'loading' | 'success' | 'error' | 'full'
 
 export default function EmailCapture({ variant, className }: EmailCaptureProps) {
   const [email,  setEmail]  = useState('')
@@ -20,13 +20,16 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
   useEffect(() => {
     fetch('/api/waitlist/count')
       .then((r) => r.json())
-      .then((d) => { if (typeof d.count === 'number') setCount(d.count) })
+      .then((d) => {
+        if (typeof d.count === 'number') setCount(d.count)
+        if (d.full) setState('full')
+      })
       .catch(() => {})
   }, [])
 
   const submit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email || state === 'loading' || state === 'success') return
+    if (!email || state === 'loading' || state === 'success' || state === 'full') return
 
     setState('loading')
     setErrMsg('')
@@ -42,8 +45,14 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
         }),
       })
 
+      const data = await res.json().catch(() => ({}))
+
+      if ((data as { error?: string }).error === 'waitlist_full') {
+        setState('full')
+        return
+      }
+
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}))
         throw new Error((data as { error?: string }).error ?? 'Something went wrong.')
       }
 
@@ -63,6 +72,20 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
         </p>
         <p className="mt-1 font-mono text-label text-muted">
           Check your inbox for a note from Jacob.
+        </p>
+      </div>
+    )
+  }
+
+  if (state === 'full') {
+    return (
+      <div className={cn('', className)}>
+        <p className="font-serif font-optical-sm text-ink text-body leading-snug">
+          The waitlist is full.{' '}
+          <span className="text-sienna">Early access is closed for now.</span>
+        </p>
+        <p className="mt-1 font-mono text-label text-muted">
+          Email <a href="mailto:hello@getdaily.dev" className="hover:text-sienna transition-colors">hello@getdaily.dev</a> if you want to be considered.
         </p>
       </div>
     )

@@ -3,12 +3,25 @@ import { Resend } from 'resend'
 
 export const preferredRegion = 'syd1'
 
-const WAITLIST_COUNT_FALLBACK = 127
+const BASE_COUNT    = 127 // Pre-Resend signups
+const MAX_CONTACTS  = 100 // Cap on Resend contacts before closing waitlist
+
+// Cache contact count in module scope — avoids a contacts.list call on every signup
+let cachedContactCount: number | null = null
+
+const delay = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 function getResend(): Resend {
   const key = process.env.RESEND_API_KEY
   if (!key) throw new Error('RESEND_API_KEY not configured')
   return new Resend(key)
+}
+
+async function initContactCount(resend: Resend, audienceId: string): Promise<number> {
+  if (cachedContactCount !== null) return cachedContactCount
+  const { data } = await resend.contacts.list({ audienceId })
+  cachedContactCount = data?.data?.length ?? 0
+  return cachedContactCount
 }
 
 export async function POST(req: NextRequest) {
@@ -23,15 +36,30 @@ export async function POST(req: NextRequest) {
     if (!email || typeof email !== 'string') {
       return NextResponse.json({ error: 'Email required.' }, { status: 400 })
     }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: 'Invalid email.' }, { status: 400 })
     }
 
-    const resend = getResend()
+    const resend     = getResend()
+    const audienceId = process.env.RESEND_AUDIENCE_ID
 
-    // 1. Send confirmation to the subscriber
+    // 1. Check cap + add contact
+    let signupNumber = BASE_COUNT + 1
+    if (audienceId) {
+      const currentCount = await initContactCount(resend, audienceId)
+
+      if (currentCount >= MAX_CONTACTS) {
+        return NextResponse.json({ error: 'waitlist_full' }, { status: 410 })
+      }
+
+      await delay(500)
+      await resend.contacts.create({ email, audienceId, unsubscribed: false })
+      cachedContactCount = currentCount + 1
+      signupNumber = BASE_COUNT + cachedContactCount
+    }
+
+    // 2. Send confirmation to the subscriber
+    await delay(500)
     await resend.emails.send({
       from:    'Jacob <hello@getdaily.dev>',
       to:      email,
@@ -53,26 +81,14 @@ That's it. Go have a calm morning.
 Brisbane`,
     })
 
-    // 2. Add to Resend contacts + get live count for email
-    const audienceId = process.env.RESEND_AUDIENCE_ID
-    let signupNumber = WAITLIST_COUNT_FALLBACK + 1
-    if (audienceId) {
-      try {
-        await resend.contacts.create({ email, audienceId, unsubscribed: false })
-        const { data: contacts } = await resend.contacts.list({ audienceId })
-        signupNumber = contacts?.data?.length ?? signupNumber
-      } catch (err) {
-        console.error('[waitlist] Contact create failed:', err)
-      }
-    }
-
     // 3. Notify yourself
     if (process.env.NOTIFICATION_EMAIL) {
+      await delay(500)
       await resend.emails.send({
         from:    'dAIly Waitlist <hello@getdaily.dev>',
         to:      process.env.NOTIFICATION_EMAIL,
-        subject: `New waitlist signup: ${email}`,
-        text: `Email: ${email}\nVariant: ${variant}\nReferrer: ${referrer ?? 'direct'}\nTime: ${new Date().toISOString()}`,
+        subject: `New waitlist signup: ${email} (#${signupNumber})`,
+        text: `Email: ${email}\nNumber: #${signupNumber}\nVariant: ${variant}\nReferrer: ${referrer ?? 'direct'}\nTime: ${new Date().toISOString()}`,
       })
     }
 
