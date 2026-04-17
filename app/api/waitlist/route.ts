@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
     // 1. Send confirmation to the subscriber
     await resend.emails.send({
-      from:    'Jacob <hello@getdaily.dev>',  // Update domain once you have it
+      from:    'Jacob <hello@getdaily.dev>',
       to:      email,
       subject: "You're in.",
       text: `Hey —
@@ -53,7 +53,16 @@ That's it. Go have a calm morning.
 Brisbane`,
     })
 
-    // 2. Notify yourself
+    // 2. Add to Resend Audience
+    if (process.env.RESEND_AUDIENCE_ID) {
+      await resend.contacts.create({
+        email,
+        audienceId: process.env.RESEND_AUDIENCE_ID,
+        unsubscribed: false,
+      })
+    }
+
+    // 3. Notify yourself
     if (process.env.NOTIFICATION_EMAIL) {
       await resend.emails.send({
         from:    'dAIly Waitlist <hello@getdaily.dev>',
