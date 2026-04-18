@@ -299,7 +299,7 @@ export default function AudioPlayer({ src = '/sample-brief.mp3', className }: Au
 
         {/* Sub-label */}
         <p className="mt-4 font-mono text-[0.625rem] text-muted tracking-widest uppercase">
-          An actual morning brief — your calendar, email, Slack, synthesised
+          An actual morning brief
         </p>
       </div>
     </div>

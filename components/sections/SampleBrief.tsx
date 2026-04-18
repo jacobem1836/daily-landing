@@ -45,14 +45,7 @@ export default function SampleBrief() {
               <p>
                 First &mdash; your lead investor hasn&rsquo;t responded to Monday&rsquo;s term sheet follow-up.
                 They tend to reply Wednesday mornings.
-                I&rsquo;ve drafted a short note; say{' '}
-                <span
-                  className="font-mono not-italic text-[0.875em] bg-sienna-pale px-1.5 py-0.5 text-ink"
-                  aria-label="say send it"
-                >
-                  &ldquo;send it&rdquo;
-                </span>{' '}
-                when you&rsquo;re ready.
+                I&rsquo;ve drafted a short note; say &ldquo;send it&rdquo; when you&rsquo;re ready.
               </p>
 
               <p>
