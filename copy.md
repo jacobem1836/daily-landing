@@ -55,18 +55,20 @@ Single source of truth for all user-facing text. Update here, then update the co
 
 - **Section heading:** `This is what a brief sounds like.`
 - **Section label:** `Sample Brief`
-- **Dateline:** `Tuesday, April 15 — 6:15am`
+- **Dateline:** `Wednesday, May 8 — 6:15am`
 
 ### Brief transcript
-> Good morning. It's Tuesday, the 15th. **Three things matter today.**
+> Good morning. It's Wednesday, the 8th. **Four things matter today.**
 >
-> First — Paul at CHOMP hasn't replied to your follow-up in six days. Based on his reply history, he's most responsive Tuesday mornings. I've drafted a nudge; say "send it" when you're ready.
+> First — your lead investor hasn't responded to Monday's term sheet follow-up. They tend to reply Wednesday mornings. I've drafted a short note; say "send it" when you're ready.
 >
-> Second — your proposal draft is due Friday. Your calendar has a four-and-a-half-hour deep work window from 10 to 2:30. I've protected it.
+> Second — your engineering channel had 31 messages overnight. One thread needs your input: the API rate limits are blocking the demo build. Your team is waiting on a call from you before they proceed.
 >
-> Third — Ben emailed last night about a venture idea. Worth your attention, but not urgent. I'll surface it after lunch.
+> Third — Northfield's renewal is in eleven days. Their last three replies have been shorter than usual. I've drafted a personal note — worth sending before this afternoon.
 >
-> Two meetings today. First one's at 3. **Your morning is yours.**
+> Fourth — one story in the news: a major bank announced an AI chief-of-staff pilot for executive teams. Relevant to your positioning. I've saved it to your reading list.
+>
+> Two external meetings today. First is at 10. **Your morning is yours.**
 
 ### Brief stats
 - `Length: 1:07`
@@ -74,11 +76,11 @@ Single source of truth for all user-facing text. Update here, then update the co
 - `Actions queued: 1`
 
 ### Aside (what happened while you slept)
-- Read 34 emails. Summarised 12 requiring attention.
-- Scanned 3 Slack channels. Surfaced 2 direct mentions.
+- Read 34 emails. Summarised 9 requiring attention.
+- Scanned 5 Slack channels. Surfaced 1 urgent thread, 3 direct mentions.
+- Monitored 12 news sources. Flagged 1 story to reading list.
 - Pulled today's calendar. Identified conflicts.
-- Checked task list. 1 deadline approaching.
-- Generated draft reply for Paul. Pending your approval.
+- Generated 2 draft replies. Pending your approval.
 - Total briefing: 90 seconds.
 
 ---
