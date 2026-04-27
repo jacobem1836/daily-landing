@@ -5,7 +5,7 @@ const CONTROLS = [
   },
   {
     label: 'Length',
-    detail: 'A 90-second sprint or a 10-minute deep read. Set a target and the brief adapts.',
+    detail: 'A focused sprint or a full read-through. Set a target length and the brief adapts.',
   },
   {
     label: 'Schedule',

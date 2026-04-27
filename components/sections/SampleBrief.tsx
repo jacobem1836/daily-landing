@@ -91,7 +91,7 @@ export default function SampleBrief() {
                 'Monitored 12 news sources. Flagged 1 story to reading list.',
                 'Pulled today\'s calendar. Identified conflicts.',
                 'Generated 2 draft replies. Pending your approval.',
-                'Total briefing: 90 seconds.',
+                'Briefing complete.',
               ].map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="text-sienna mt-px shrink-0" aria-hidden="true">—</span>

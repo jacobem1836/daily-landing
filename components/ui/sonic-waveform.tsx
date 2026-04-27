@@ -192,7 +192,7 @@ const EditorialWaveformHero = () => {
             fontVariationSettings: '"opsz" 14',
           }}
         >
-          A 90-second executive briefing, spoken to you every morning.
+          A morning briefing, spoken before you open a single app.
         </motion.p>
 
         <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible">

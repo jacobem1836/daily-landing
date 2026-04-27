@@ -30,11 +30,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://getdaily.dev'),
   title: 'dAIly — Your life briefs you.',
   description:
-    'A 90-second executive briefing, spoken to you every morning. Your email, calendar, Slack, and messages — synthesised, prioritised, and read to you before you open a single app.',
+    'A morning briefing, spoken to you before you open a single app. Your email, calendar, Slack, and messages — synthesised, prioritised, and delivered as voice.',
   openGraph: {
     title: 'dAIly — Your life briefs you.',
     description:
-      'A 90-second executive briefing, spoken to you every morning. Built for operators.',
+      'A morning briefing, spoken to you before you open a single app. Built for operators.',
     type: 'website',
     locale: 'en_AU',
     siteName: 'dAIly',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'dAIly — Your life briefs you.',
     description:
-      'A 90-second executive briefing, spoken to you every morning. Built for operators.',
+      'A morning briefing, spoken to you before you open a single app. Built for operators.',
   },
   robots: {
     index: true,

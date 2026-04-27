@@ -66,10 +66,9 @@ export default function Hero({ variant }: HeroProps) {
           />
 
           <p className="font-serif font-optical-sm text-pull text-muted leading-relaxed max-w-md">
-            A 90-second executive briefing, spoken to you every morning. Your email, calendar, Slack,
-            news, and messages &mdash; synthesised, prioritised, and read to you before you open a
-            single app. Fully customisable &mdash; choose your sources, set your brief time, tune
-            what matters.
+            Your email, calendar, Slack, news, and messages &mdash; synthesised, prioritised, and
+            read to you before you open a single app. Fully customisable &mdash; choose your sources,
+            set your length, tune what matters.
           </p>
 
           {/* Source citations — newspaper convention */}

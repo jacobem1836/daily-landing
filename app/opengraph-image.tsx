@@ -96,7 +96,7 @@ export default async function OGImage() {
                 fontStyle: 'italic',
               }}
             >
-              A 90-second executive briefing, spoken to you every morning. Built for operators.
+              A morning briefing, spoken to you before you open a single app. Built for operators.
             </span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '8px' }}>
               {['Gmail', 'Calendar', 'Slack', 'News', 'Messages'].map((s) => (

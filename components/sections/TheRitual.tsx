@@ -9,7 +9,7 @@ const RITUAL_STEPS = [
   {
     time: '6:15am',
     heading: 'You wake up.',
-    body: 'Your brief plays automatically. 90 seconds. The most important three things, prioritised. No notification badge. No inbox. Just voice.',
+    body: 'Your brief plays automatically. Everything that matters, nothing that doesn\'t. No notification badge. No inbox. Just voice.',
   },
   {
     time: '6:16am',
