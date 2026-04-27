@@ -4,7 +4,7 @@ const RITUAL_STEPS = [
   {
     time: '6:00am',
     heading: 'While you sleep.',
-    body: 'Your assistant reads your inbox, calendar, Slack, and messages. It identifies what matters, who needs a response, and what you can safely ignore.',
+    body: 'Your assistant reads your inbox, calendar, Slack, messages, and more. It identifies what matters, who needs a response, and what you can safely ignore.',
   },
   {
     time: '6:15am',

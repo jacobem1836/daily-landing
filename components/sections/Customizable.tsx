@@ -1,7 +1,7 @@
 const CONTROLS = [
   {
     label: 'Sources',
-    detail: 'Gmail, Calendar, Slack, news feeds, Messages — connect what you want, ignore the rest.',
+    detail: 'Gmail, Calendar, Slack, news feeds, Messages, and more — connect what you want, ignore the rest.',
   },
   {
     label: 'Length',

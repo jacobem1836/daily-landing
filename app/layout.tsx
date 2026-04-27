@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://getdaily.dev'),
   title: 'dAIly — Your life briefs you.',
   description:
-    'A morning briefing, spoken to you before you open a single app. Your email, calendar, Slack, and messages — synthesised, prioritised, and delivered as voice.',
+    'A morning briefing, spoken to you before you open a single app. Your email, calendar, Slack, messages, and more — synthesised, prioritised, and delivered as voice.',
   openGraph: {
     title: 'dAIly — Your life briefs you.',
     description:

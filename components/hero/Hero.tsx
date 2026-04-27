@@ -61,14 +61,14 @@ export default function Hero({ variant }: HeroProps) {
           />
 
           <p className="font-serif font-optical-sm text-pull text-muted leading-relaxed max-w-md">
-            Your email, calendar, Slack, news, and messages &mdash; synthesised, prioritised, and
+            Your email, calendar, Slack, news, messages, and more &mdash; synthesised, prioritised, and
             read to you before you open a single app. Fully customisable &mdash; choose your sources,
             set your length, tune what matters.
           </p>
 
           {/* Source citations — newspaper convention */}
           <p className="mt-8 font-mono text-label text-muted">
-            Gmail · Calendar · Slack · News · Messages
+            Gmail · Calendar · Slack · News · Messages · More
           </p>
         </motion.div>
 
