@@ -46,11 +46,6 @@ export default function Hero({ variant }: HeroProps) {
       >
         {/* Left column — Headline and sub */}
         <motion.div variants={stagger.item} className="pr-0 lg:pr-12 lg:col-rule pb-12 lg:pb-0">
-          {/* Vol / Edition label — newspaper convention */}
-          <p className="font-mono text-label text-muted small-caps mb-6 tracking-wider">
-            Morning Intelligence — Pre-Launch
-          </p>
-
           <h1
             id="hero-headline"
             className="font-serif font-optical-display text-display text-ink mb-6 italic"
