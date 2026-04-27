@@ -9,8 +9,16 @@ const FAQS = [
     a: 'Technically yes. Practically no. You never see a chat window. You never prompt anything. You wake up, and your day is already understood. The AI is infrastructure — the ritual is the product.',
   },
   {
+    q: 'What data actually leaves my device?',
+    a: "You choose. Connect only the sources you're comfortable with. By default, dAIly processes content in-memory to generate your brief — raw email bodies and message threads are never written to disk. Only the synthesised summary is retained (cached for 24 hours so your morning playback is instant, then discarded). OAuth tokens are AES-256 encrypted at rest and never exposed to the LLM layer. Local-first processing — where the brief is generated entirely on your machine — is on the roadmap.",
+  },
+  {
+    q: 'Can I limit what gets sent to the cloud?',
+    a: "Yes. Every source is opt-in. Don't want your Slack DMs in the brief? Leave it disconnected. Only want calendar and email? Connect just those. You can also configure dAIly to use metadata only — subject lines, sender names, event titles — without processing message bodies at all. Privacy-first mode is a first-class setting, not an afterthought.",
+  },
+  {
     q: 'Where does my data go?',
-    a: "Your raw emails and messages never leave encrypted storage. Only summaries are retained. OAuth tokens are AES-256 encrypted at rest. I'm a solo founder — I'd rather build this right than scale fast.",
+    a: "Raw emails and messages are processed in-memory and never stored. Only the final brief is cached. OAuth credentials are encrypted with AES-256 and stored in a secure vault — they're never logged, never passed to the AI, and never shared. I'm a solo founder building this for operators like me. I'd rather get this right than scale fast.",
   },
   {
     q: 'When can I use it?',

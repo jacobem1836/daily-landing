@@ -5,6 +5,7 @@ import Hero from '@/components/hero/Hero'
 import TheRitual from '@/components/sections/TheRitual'
 import SampleBrief from '@/components/sections/SampleBrief'
 import WhoItsFor from '@/components/sections/WhoItsFor'
+import Customizable from '@/components/sections/Customizable'
 import FAQ from '@/components/sections/FAQ'
 import Footer from '@/components/sections/Footer'
 
@@ -56,7 +57,10 @@ export default async function Page({ searchParams }: PageProps) {
         {/* ── 4. Who It's For ── */}
         <WhoItsFor />
 
-        {/* ── 5. FAQ ── */}
+        {/* ── 5. Customisable ── */}
+        <Customizable />
+
+        {/* ── 6. FAQ ── */}
         <FAQ />
       </main>
 
