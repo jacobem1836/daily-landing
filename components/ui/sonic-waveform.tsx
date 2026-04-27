@@ -185,11 +185,9 @@ const EditorialWaveformHero = () => {
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className="font-serif text-muted mb-10 leading-relaxed"
+          className="font-reading text-muted mb-10 leading-relaxed"
           style={{
-            fontFamily:           'var(--font-fraunces, Georgia, serif)',
-            fontSize:             'clamp(1rem, 1.2vw + 0.5rem, 1.25rem)',
-            fontVariationSettings: '"opsz" 14',
+            fontSize: 'clamp(1rem, 1.2vw + 0.5rem, 1.25rem)',
           }}
         >
           A morning briefing, spoken before you open a single app.

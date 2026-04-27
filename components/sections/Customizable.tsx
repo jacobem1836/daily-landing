@@ -61,7 +61,7 @@ export default function Customizable() {
             No two mornings are the same. Your brief shouldn&rsquo;t be either.
           </p>
           <p
-            className="font-serif font-optical-sm text-muted leading-relaxed"
+            className="font-reading text-muted leading-relaxed"
             style={{ fontSize: 'clamp(0.9375rem, 0.85rem + 0.3vw, 1.0625rem)' }}
           >
             dAIly is built to fit your workflow, not replace it with someone else&rsquo;s. Every
@@ -80,7 +80,8 @@ export default function Customizable() {
           {CONTROLS.map((item, i) => (
             <div
               key={item.label}
-              className={`py-6 flex flex-col gap-2
+              className={`flex flex-col gap-2
+                ${i < 2 ? 'pt-0 pb-8' : 'py-6'}
                 ${i % 2 === 1 ? 'sm:border-l sm:pl-6 border-rule' : ''}
                 ${i >= 2 ? 'border-t border-rule' : ''}
                 ${i % 2 === 0 && i >= 2 ? 'sm:pr-6' : ''}
@@ -90,7 +91,7 @@ export default function Customizable() {
                 {item.label}
               </p>
               <p
-                className="font-serif font-optical-sm text-muted leading-relaxed"
+                className="font-reading text-muted leading-relaxed"
                 style={{ fontSize: 'clamp(0.875rem, 0.8rem + 0.25vw, 1rem)' }}
               >
                 {item.detail}

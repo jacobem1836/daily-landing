@@ -19,8 +19,9 @@ const config: Config = {
         rule:       'var(--rule)',
       },
       fontFamily: {
-        serif: ['var(--font-fraunces)', 'Georgia', 'Times New Roman', 'serif'],
-        mono:  ['var(--font-jetbrains)', '"Courier New"', 'monospace'],
+        serif:   ['var(--font-fraunces)', 'Georgia', 'Times New Roman', 'serif'],
+        reading: ['var(--font-source-serif)', 'Georgia', 'Times New Roman', 'serif'],
+        mono:    ['var(--font-mono)', '"Courier New"', 'monospace'],
       },
       fontSize: {
         // Major third scale (×1.25). Steps from 1rem: 0.8, 1, 1.25, 1.5625, 1.953, 2.441, 3.052, 3.815, 4.768

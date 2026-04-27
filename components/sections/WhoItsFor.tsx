@@ -70,7 +70,7 @@ export default function WhoItsFor() {
             </blockquote>
 
             {/* Secondary line */}
-            <p className="font-serif font-optical-sm text-muted text-small leading-relaxed mt-auto">
+            <p className="font-reading text-muted text-small leading-relaxed mt-auto">
               {p.detail}
             </p>
           </article>

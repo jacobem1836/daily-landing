@@ -31,10 +31,9 @@ export default function SampleBrief() {
             </header>
 
             <div
-              className="font-serif italic text-ink space-y-5 font-optical-sm leading-relaxed"
+              className="font-reading italic text-ink space-y-5 leading-relaxed"
               style={{
                 fontSize: 'clamp(1.0625rem, 1vw + 0.7rem, 1.25rem)',
-                fontVariationSettings: '"opsz" 14',
               }}
             >
               <p>

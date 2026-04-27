@@ -76,7 +76,7 @@ export default function TheRitual() {
             </h3>
 
             {/* Body */}
-            <p className="font-serif font-optical-sm text-muted text-body leading-relaxed">
+            <p className="font-reading text-muted text-body leading-relaxed">
               {step.body}
             </p>
           </li>

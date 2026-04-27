@@ -190,7 +190,7 @@ body {
 .submit-btn {
   background-color: var(--ink);
   color: var(--paper);
-  font-family: var(--font-jetbrains), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
   transition:

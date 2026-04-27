@@ -100,7 +100,7 @@ export default function FAQ() {
                   style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                 >
                   <p
-                    className="font-serif font-optical-sm text-muted leading-relaxed pr-10"
+                    className="font-reading text-muted leading-relaxed pr-10"
                     style={{ fontSize: 'clamp(0.9375rem, 0.85rem + 0.3vw, 1.0625rem)' }}
                   >
                     {faq.a}

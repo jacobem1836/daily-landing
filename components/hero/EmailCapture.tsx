@@ -66,7 +66,7 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
   if (state === 'success') {
     return (
       <div className={cn('', className)}>
-        <p className="font-serif font-optical-sm text-ink text-body leading-snug">
+        <p className="font-reading text-ink text-body leading-snug">
           You&rsquo;re in.{' '}
           <span className="text-sienna">The first brief lands when we&rsquo;re ready.</span>
         </p>
@@ -80,7 +80,7 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
   if (state === 'full') {
     return (
       <div className={cn('', className)}>
-        <p className="font-serif font-optical-sm text-ink text-body leading-snug">
+        <p className="font-reading text-ink text-body leading-snug">
           The waitlist is full.{' '}
           <span className="text-sienna">Early access is closed for now.</span>
         </p>
@@ -106,7 +106,7 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
           ref={inputRef}
           id="email-input"
           type="email"
-          className="email-input flex-1 px-4 py-3.5 sm:py-4 text-body font-serif font-optical-sm min-w-0"
+          className="email-input flex-1 px-4 py-3.5 sm:py-4 text-body font-reading min-w-0"
           placeholder="your@email.com"
           value={email}
           onChange={(e) => { setEmail(e.target.value); if (state === 'error') setState('idle') }}

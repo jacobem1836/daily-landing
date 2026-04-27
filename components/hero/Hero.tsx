@@ -35,7 +35,7 @@ export default function Hero({ variant }: HeroProps) {
   return (
     <section
       id="hero"
-      className="grain-overlay min-h-[90vh] flex flex-col justify-between pt-28 pb-16 px-6 sm:px-10 lg:px-16 xl:px-24 max-w-screen-xl mx-auto"
+      className="grain-overlay min-h-[90vh] flex flex-col pt-28 pb-16 px-6 sm:px-10 lg:px-16 xl:px-24 max-w-screen-xl mx-auto"
       aria-labelledby="hero-headline"
     >
       <motion.div
@@ -60,16 +60,12 @@ export default function Hero({ variant }: HeroProps) {
             aria-hidden="true"
           />
 
-          <p className="font-serif font-optical-sm text-pull text-muted leading-relaxed max-w-md">
+          <p className="font-reading text-pull text-muted leading-relaxed max-w-md">
             Your email, calendar, Slack, news, messages, and more &mdash; synthesised, prioritised, and
             read to you before you open a single app. Fully customisable &mdash; choose your sources,
             set your length, tune what matters.
           </p>
 
-          {/* Source citations — newspaper convention */}
-          <p className="mt-8 font-mono text-label text-muted">
-            Gmail · Calendar · Slack · News · Messages · More
-          </p>
         </motion.div>
 
         {/* Column rule */}
@@ -91,16 +87,6 @@ export default function Hero({ variant }: HeroProps) {
         </motion.div>
       </motion.div>
 
-      {/* Bottom section tag — newspaper footer convention */}
-      <motion.div
-        variants={stagger.item}
-        initial="hidden"
-        animate="visible"
-        className="section-rule pt-4 mt-12 lg:mt-16 flex items-center justify-between"
-      >
-        <span className="font-mono text-label text-muted">Built for operators. Brisbane, 2026.</span>
-        <span className="font-mono text-label text-muted hidden sm:block">M1 — Early Access</span>
-      </motion.div>
     </section>
   )
 }
