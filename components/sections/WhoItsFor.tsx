@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils'
+
 const PERSONAS = [
   {
     quote:
@@ -27,7 +29,7 @@ export default function WhoItsFor() {
       aria-labelledby="personas-heading"
     >
       {/* Section header */}
-      <div className="section-rule pb-8 mb-12 flex items-end justify-between gap-4">
+      <div className="section-rule pb-8 mb-12">
         <h2
           id="personas-heading"
           className="font-serif font-optical-headline text-section text-ink"
@@ -35,42 +37,39 @@ export default function WhoItsFor() {
         >
           Who it&rsquo;s for.
         </h2>
-        <span className="font-mono text-label text-muted whitespace-nowrap hidden sm:block">
-          Audience
-        </span>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-0">
+      {/* Full-width stacked personas with editorial blockquote layout */}
+      <div className="space-y-0">
         {PERSONAS.map((p, i) => (
           <article
             key={p.label}
-            className={
-              `py-8 md:py-0 md:px-10 flex flex-col gap-5
-              ${i > 0 ? 'border-t md:border-t-0 md:border-l border-rule' : 'md:pr-10 md:pl-0'}
-              ${i === PERSONAS.length - 1 ? 'md:pr-0' : ''}`
-            }
+            className={cn(
+              'py-12 px-0',
+              i > 0 && 'border-t border-rule',
+            )}
             aria-label={`Persona: ${p.label}`}
           >
             {/* Label */}
-            <p className="font-mono text-label text-sienna tracking-widest small-caps">
+            <p className="font-mono text-label text-ink-mid tracking-widest small-caps mb-6">
               {p.label}
             </p>
 
-            {/* Pull quote */}
-            <blockquote>
+            {/* Pull quote — editorial blockquote */}
+            <blockquote className="mb-6">
               <p
-                className="font-serif italic text-ink leading-snug"
+                className="font-serif italic text-ink leading-relaxed"
                 style={{
-                  fontSize: 'clamp(1rem, 1vw + 0.5rem, 1.1875rem)',
-                  fontVariationSettings: '"opsz" 14',
+                  fontSize: 'clamp(1.125rem, 1.5vw + 0.5rem, 1.4375rem)',
+                  fontVariationSettings: '"opsz" 18',
                 }}
               >
                 &ldquo;{p.quote}&rdquo;
               </p>
             </blockquote>
 
-            {/* Secondary line */}
-            <p className="font-reading text-muted text-small leading-relaxed mt-auto">
+            {/* Secondary detail line */}
+            <p className="font-mono text-muted text-small leading-relaxed">
               {p.detail}
             </p>
           </article>

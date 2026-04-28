@@ -2,20 +2,20 @@ export default function SampleBrief() {
   return (
     <section
       id="sample-brief"
-      className="bg-paper-dark border-y border-rule"
+      className="bg-ink border-y border-paper/10"
       aria-labelledby="brief-heading"
     >
       <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 py-24 lg:py-32">
         {/* Section header */}
-        <div className="pb-8 mb-12 flex items-end justify-between gap-4 border-b border-ink">
+        <div className="pb-8 mb-12 flex items-end justify-between gap-4 border-b border-paper/20">
           <h2
             id="brief-heading"
-            className="font-serif font-optical-headline text-section text-ink"
+            className="font-serif font-optical-headline text-section text-paper"
             style={{ fontVariationSettings: '"opsz" 36' }}
           >
             This is what a brief sounds like.
           </h2>
-          <span className="font-mono text-label text-muted whitespace-nowrap hidden sm:block">
+          <span className="font-mono text-label text-paper/60 whitespace-nowrap hidden sm:block">
             Sample Brief
           </span>
         </div>
@@ -25,20 +25,20 @@ export default function SampleBrief() {
           <article aria-label="Example morning briefing transcript">
             {/* Intro line — dateline style */}
             <header className="mb-6">
-              <p className="font-mono text-label text-muted tracking-wider">
+              <p className="font-mono text-label text-paper/60 tracking-wider">
                 Wednesday, May 8 — 6:15am
               </p>
             </header>
 
             <div
-              className="font-reading italic text-ink space-y-5 leading-relaxed"
+              className="font-mono italic text-paper space-y-5 leading-relaxed"
               style={{
                 fontSize: 'clamp(1.0625rem, 1vw + 0.7rem, 1.25rem)',
               }}
             >
               <p>
                 Good morning. It&rsquo;s Wednesday, the 8th.{' '}
-                <strong className="not-italic font-normal text-sienna">Four things matter today.</strong>
+                <strong className="not-italic font-semibold text-paper">Four things matter today.</strong>
               </p>
 
               <p>
@@ -71,8 +71,8 @@ export default function SampleBrief() {
             </div>
 
             {/* Footer of the brief card */}
-            <footer className="mt-8 pt-5 border-t border-rule">
-              <p className="font-mono text-label text-muted">
+            <footer className="mt-8 pt-5 border-t border-paper/15">
+              <p className="font-mono text-label text-paper/60">
                 Length: 1:07 &ensp;&middot;&ensp; Items reviewed: 34 &ensp;&middot;&ensp; Actions queued: 1
               </p>
             </footer>
@@ -80,10 +80,10 @@ export default function SampleBrief() {
 
           {/* Pull aside — what's happening under the hood */}
           <aside aria-label="How the brief is assembled">
-            <p className="font-mono text-label text-muted small-caps tracking-wider mb-5">
+            <p className="font-mono text-label text-paper/60 small-caps tracking-wider mb-5">
               What happened while you slept
             </p>
-            <ul className="space-y-3 font-mono text-small text-muted" role="list">
+            <ul className="space-y-3 font-mono text-small text-paper/60" role="list">
               {[
                 'Read 34 emails. Summarised 9 requiring attention.',
                 'Scanned 5 Slack channels. Surfaced 1 urgent thread, 3 direct mentions.',
@@ -93,7 +93,7 @@ export default function SampleBrief() {
                 'Briefing complete.',
               ].map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span className="text-sienna mt-px shrink-0" aria-hidden="true">—</span>
+                  <span className="text-paper/50 mt-px shrink-0" aria-hidden="true">—</span>
                   <span>{item}</span>
                 </li>
               ))}

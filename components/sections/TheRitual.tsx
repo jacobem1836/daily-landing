@@ -26,7 +26,7 @@ export default function TheRitual() {
       aria-labelledby="ritual-heading"
     >
       {/* Section header */}
-      <div className="section-rule pb-8 mb-12 flex items-end justify-between gap-4">
+      <div className="section-rule pb-8 mb-12">
         <h2
           id="ritual-heading"
           className="font-serif font-optical-headline text-section text-ink"
@@ -34,12 +34,9 @@ export default function TheRitual() {
         >
           The 16 minutes that change the day.
         </h2>
-        <span className="font-mono text-label text-muted whitespace-nowrap hidden sm:block">
-          The Ritual
-        </span>
       </div>
 
-      {/* Three timestamped steps */}
+      {/* Staggered grid: first step wider than others */}
       <ol
         className="grid md:grid-cols-3 gap-0"
         role="list"
@@ -57,7 +54,7 @@ export default function TheRitual() {
           >
             {/* Timestamp */}
             <time
-              className="font-mono text-label text-sienna tracking-widest block mb-4"
+              className="font-mono text-label text-ink-mid tracking-widest block mb-4"
               dateTime={`06:${i === 0 ? '00' : i === 1 ? '15' : '16'}`}
             >
               {step.time}
@@ -76,7 +73,7 @@ export default function TheRitual() {
             </h3>
 
             {/* Body */}
-            <p className="font-reading text-muted text-body leading-relaxed">
+            <p className="font-mono text-muted text-body leading-relaxed">
               {step.body}
             </p>
           </li>

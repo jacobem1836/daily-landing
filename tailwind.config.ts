@@ -13,14 +13,15 @@ const config: Config = {
         'paper-mid': 'var(--paper-mid)',
         ink:        'var(--ink)',
         'ink-light': 'var(--ink-light)',
-        sienna:     'var(--sienna)',
-        'sienna-pale': 'var(--sienna-pale)',
+        'ink-mid':  'var(--ink-mid)',
+        accent:     'var(--accent)',
+        'accent-hover': 'var(--accent-hover)',
         muted:      'var(--muted)',
         rule:       'var(--rule)',
       },
       fontFamily: {
         serif:   ['var(--font-fraunces)', 'Georgia', 'Times New Roman', 'serif'],
-        reading: ['var(--font-source-serif)', 'Georgia', 'Times New Roman', 'serif'],
+        reading: ['var(--font-mono)', '"Courier New"', 'monospace'],
         mono:    ['var(--font-mono)', '"Courier New"', 'monospace'],
       },
       fontSize: {
@@ -34,7 +35,7 @@ const config: Config = {
         'label':    ['0.6875rem', { lineHeight: '1.4', letterSpacing: '0.1em' }],
       },
       spacing: {
-        section: 'clamp(5rem, 10vw, 9rem)',
+        section: 'clamp(4rem, 7vw, 7rem)',
         // Major third spacing scale (×1.25 from 0.25rem = 4px)
         'sp-1':  'var(--sp-1)',
         'sp-2':  'var(--sp-2)',

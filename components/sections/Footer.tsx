@@ -4,10 +4,10 @@ export default function Footer() {
       {/* Contact row */}
       <div className="pb-8 mb-8 border-b border-rule grid sm:grid-cols-3 gap-6">
         <div>
-          <p className="font-mono text-label text-sienna tracking-widest small-caps mb-2">Contact</p>
+          <p className="font-mono text-label text-ink-mid tracking-widest small-caps mb-2">Contact</p>
           <a
             href="mailto:hello@getdaily.dev"
-            className="font-mono text-label text-ink hover:text-sienna transition-colors duration-150"
+            className="font-mono text-label text-ink hover:text-ink-mid transition-colors duration-150"
             aria-label="Email the dAIly team"
           >
             hello@getdaily.dev
@@ -15,22 +15,22 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="font-mono text-label text-sienna tracking-widest small-caps mb-2">Waitlist</p>
+          <p className="font-mono text-label text-ink-mid tracking-widest small-caps mb-2">Waitlist</p>
           <a
             href="#hero"
-            className="font-mono text-label text-ink hover:text-sienna transition-colors duration-150"
+            className="font-mono text-label text-ink hover:text-ink-mid transition-colors duration-150"
           >
             getdaily.dev
           </a>
         </div>
 
         <div>
-          <p className="font-mono text-label text-sienna tracking-widest small-caps mb-2">Built by</p>
+          <p className="font-mono text-label text-ink-mid tracking-widest small-caps mb-2">Built by</p>
           <a
             href="https://x.com/jacobemarriott1"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-label text-ink hover:text-sienna transition-colors duration-150"
+            className="font-mono text-label text-ink hover:text-ink-mid transition-colors duration-150"
             aria-label="Jacob Marriott on X"
           >
             Jacob Marriott — Brisbane

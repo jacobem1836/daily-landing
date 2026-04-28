@@ -103,7 +103,7 @@ export default function AudioPlayer({ src = '/sample-brief.mp3', className }: Au
 
       // Ink-family colour based on state
       if (isPast) {
-        ctx.fillStyle = 'oklch(52% 0.155 48)' // sienna
+        ctx.fillStyle = 'oklch(18% 0.012 50)' // ink
       } else if (isPlaying) {
         ctx.fillStyle = 'oklch(35% 0.018 55)' // ink-light
       } else {
@@ -272,7 +272,7 @@ export default function AudioPlayer({ src = '/sample-brief.mp3', className }: Au
         <div className="flex items-center gap-5">
           {/* Play / Pause button */}
           <button
-            className="play-button w-12 h-12 rounded-full flex items-center justify-center shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sienna"
+            className="play-button w-12 h-12 rounded-full flex items-center justify-center shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             onClick={toggle}
             aria-label={isPlaying ? 'Pause briefing' : 'Play briefing'}
           >
@@ -286,7 +286,7 @@ export default function AudioPlayer({ src = '/sample-brief.mp3', className }: Au
           {/* Progress bar — thin line */}
           <div className="flex-1 relative h-px bg-rule" role="presentation">
             <div
-              className="absolute inset-y-0 left-0 bg-sienna transition-none"
+              className="absolute inset-y-0 left-0 bg-ink transition-none"
               style={{ width: duration ? `${(progress / duration) * 100}%` : '0%' }}
             />
           </div>

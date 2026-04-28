@@ -36,40 +36,40 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-paper-dark border-y border-rule"
+      className="bg-ink border-y border-paper/10"
       aria-labelledby="faq-heading"
     >
       <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 py-24 lg:py-32">
         {/* Section header */}
-        <div className="pb-8 mb-0 flex items-end justify-between gap-4 border-b border-ink">
+        <div className="pb-8 mb-0 flex items-end justify-between gap-4 border-b border-paper/20">
           <h2
             id="faq-heading"
-            className="font-serif font-optical-headline text-section text-ink"
+            className="font-serif font-optical-headline text-section text-paper"
             style={{ fontVariationSettings: '"opsz" 36' }}
           >
             A few questions.
           </h2>
-          <span className="font-mono text-label text-muted whitespace-nowrap hidden sm:block">
+          <span className="font-mono text-label text-paper/60 whitespace-nowrap hidden sm:block">
             FAQ
           </span>
         </div>
 
         {/* Accordion */}
-        <dl className="divide-y divide-rule" role="list">
+        <dl className="divide-y divide-paper/15" role="list">
           {FAQS.map((faq, i) => {
             const isOpen = open === i
             return (
               <div key={faq.q} className="faq-item py-0">
                 <dt>
                   <button
-                    className="faq-question w-full flex items-start justify-between gap-6 py-6 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sienna"
+                    className="faq-question w-full flex items-start justify-between gap-6 py-6 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
                     onClick={() => setOpen(isOpen ? null : i)}
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${i}`}
                     id={`faq-question-${i}`}
                   >
                     <span
-                      className="font-serif text-ink"
+                      className="font-serif text-paper"
                       style={{
                         fontSize: 'clamp(1rem, 0.9rem + 0.4vw, 1.1875rem)',
                         fontVariationSettings: '"opsz" 14',
@@ -80,7 +80,7 @@ export default function FAQ() {
                     </span>
                     <span
                       className={cn(
-                        'font-mono text-label text-muted shrink-0 mt-1 transition-transform duration-300',
+                        'font-serif text-[2rem] leading-none text-paper shrink-0 transition-transform duration-300',
                         isOpen && 'rotate-45',
                       )}
                       aria-hidden="true"
@@ -100,7 +100,7 @@ export default function FAQ() {
                   style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                 >
                   <p
-                    className="font-reading text-muted leading-relaxed pr-10"
+                    className="font-mono text-paper/60 leading-relaxed pr-10"
                     style={{ fontSize: 'clamp(0.9375rem, 0.85rem + 0.3vw, 1.0625rem)' }}
                   >
                     {faq.a}

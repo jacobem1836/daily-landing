@@ -66,9 +66,9 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
   if (state === 'success') {
     return (
       <div className={cn('', className)}>
-        <p className="font-reading text-ink text-body leading-snug">
+        <p className="font-mono text-ink text-body leading-snug">
           You&rsquo;re in.{' '}
-          <span className="text-sienna">The first brief lands when we&rsquo;re ready.</span>
+          <span className="text-ink-light">The first brief lands when we&rsquo;re ready.</span>
         </p>
         <p className="mt-1 font-mono text-label text-muted">
           Check your inbox for a note from Jacob.
@@ -80,12 +80,12 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
   if (state === 'full') {
     return (
       <div className={cn('', className)}>
-        <p className="font-reading text-ink text-body leading-snug">
+        <p className="font-mono text-ink text-body leading-snug">
           The waitlist is full.{' '}
-          <span className="text-sienna">Early access is closed for now.</span>
+          <span className="text-ink-light">Early access is closed for now.</span>
         </p>
         <p className="mt-1 font-mono text-label text-muted">
-          Email <a href="mailto:hello@getdaily.dev" className="hover:text-sienna transition-colors">hello@getdaily.dev</a> if you want to be considered.
+          Email <a href="mailto:hello@getdaily.dev" className="hover:text-ink-mid transition-colors">hello@getdaily.dev</a> if you want to be considered.
         </p>
       </div>
     )
@@ -106,7 +106,7 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
           ref={inputRef}
           id="email-input"
           type="email"
-          className="email-input flex-1 px-4 py-3.5 sm:py-4 text-body font-reading min-w-0"
+          className="email-input flex-1 px-4 py-3.5 sm:py-4 text-body font-mono min-w-0"
           placeholder="your@email.com"
           value={email}
           onChange={(e) => { setEmail(e.target.value); if (state === 'error') setState('idle') }}
@@ -129,7 +129,7 @@ export default function EmailCapture({ variant, className }: EmailCaptureProps) 
       </form>
 
       {state === 'error' && (
-        <p id="email-error" role="alert" className="mt-2 font-mono text-label text-sienna">
+        <p id="email-error" role="alert" className="mt-2 font-mono text-label text-ink-light">
           {errMsg}
         </p>
       )}

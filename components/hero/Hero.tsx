@@ -42,51 +42,57 @@ export default function Hero({ variant }: HeroProps) {
         variants={stagger.container}
         initial="hidden"
         animate="visible"
-        className="grid lg:grid-cols-[1fr_1px_1fr] gap-0 items-start"
+        className="flex flex-col gap-12"
       >
-        {/* Left column — Headline and sub */}
-        <motion.div variants={stagger.item} className="pr-0 lg:pr-12 lg:col-rule pb-12 lg:pb-0">
+        {/* Headline — full width, visual anchor */}
+        <motion.div variants={stagger.item}>
           <h1
             id="hero-headline"
-            className="font-serif font-optical-display text-display text-ink mb-6 italic"
-            style={{ fontVariationSettings: '"opsz" 72, "SOFT" 0' }}
+            className="font-serif font-optical-display text-ink italic"
+            style={{
+              fontSize: 'clamp(3.5rem, 3rem + 5vw, 7rem)',
+              lineHeight: 1.05,
+              fontVariationSettings: '"opsz" 72, "SOFT" 0',
+            }}
           >
             {headline}
           </h1>
-
-          <div
-            className="w-12 h-px bg-sienna mb-6"
-            role="presentation"
-            aria-hidden="true"
-          />
-
-          <p className="font-reading text-pull text-muted leading-relaxed max-w-md">
-            Your email, calendar, Slack, news, messages, and more &mdash; synthesised, prioritised, and
-            read to you before you open a single app. Fully customisable &mdash; choose your sources,
-            set your length, tune what matters.
-          </p>
-
         </motion.div>
 
-        {/* Column rule */}
-        <div className="hidden lg:block bg-rule" aria-hidden="true" />
-
-        {/* Right column — Audio + email. Offset on desktop so the player lands below
-            the headline's first line, creating a visual lead from left→right↓ */}
-        <motion.div variants={stagger.item} className="lg:pl-12 pt-12 lg:pt-16 flex flex-col gap-8">
+        {/* Below the headline — two columns on desktop, stacked on mobile */}
+        <motion.div
+          variants={stagger.item}
+          className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start"
+        >
+          {/* Left — body copy */}
           <div>
-            <p className="font-mono text-label text-muted small-caps mb-4 tracking-wider">
-              Press play &darr;
+            <div
+              className="w-12 h-px bg-ink mb-6"
+              role="presentation"
+              aria-hidden="true"
+            />
+            <p className="font-mono text-pull text-muted leading-relaxed max-w-md">
+              Your email, calendar, Slack, news, messages, and more &mdash; synthesised,
+              prioritised, and read to you before you open a single app. Fully
+              customisable &mdash; choose your sources, set your length, tune what matters.
             </p>
-            <AudioPlayer src="/sample-brief.mp3" />
           </div>
 
-          <div id="waitlist" className="section-rule-muted pt-8" style={{ scrollMarginTop: '5rem' }}>
-            <EmailCapture variant={variant} />
+          {/* Right — audio player + email capture */}
+          <div className="flex flex-col gap-8">
+            <div>
+              <p className="font-mono text-label text-muted small-caps mb-4 tracking-wider">
+                Press play &darr;
+              </p>
+              <AudioPlayer src="/sample-brief.mp3" />
+            </div>
+
+            <div id="waitlist" className="section-rule-muted pt-8" style={{ scrollMarginTop: '5rem' }}>
+              <EmailCapture variant={variant} />
+            </div>
           </div>
         </motion.div>
       </motion.div>
-
     </section>
   )
 }

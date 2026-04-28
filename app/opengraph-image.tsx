@@ -19,7 +19,7 @@ export default async function OGImage() {
         style={{
           width: '1200px',
           height: '630px',
-          backgroundColor: '#f7f2e8',
+          backgroundColor: '#ede8e0',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -66,7 +66,7 @@ export default async function OGImage() {
         <div style={{ display: 'flex', gap: '80px', alignItems: 'flex-start', flex: 1, paddingTop: '48px' }}>
           {/* Left — headline */}
           <div style={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div style={{ width: '40px', height: '3px', backgroundColor: '#b85c38' }} />
+            <div style={{ width: '40px', height: '3px', backgroundColor: '#2a2420' }} />
             <span
               style={{
                 fontFamily: 'Fraunces, Georgia, serif',

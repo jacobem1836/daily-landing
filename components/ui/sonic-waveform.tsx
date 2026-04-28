@@ -56,12 +56,8 @@ const EditorialWaveformCanvas = () => {
         const progress        = i / lineCount
         const colorIntensity  = Math.sin(progress * Math.PI)
 
-        // Ink-family colour — no teal
-        // Lines range from muted warm gray to sienna at peak
-        const r = Math.round(80 + colorIntensity * 80)
-        const g = Math.round(60 + colorIntensity * 30)
-        const b = Math.round(50 + colorIntensity * 20)
-        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${colorIntensity * 0.35})`
+        const v = Math.round(50 + colorIntensity * 40)
+        ctx.strokeStyle = `rgba(${v}, ${v - 5}, ${v - 8}, ${colorIntensity * 0.3})`
         ctx.lineWidth   = 1
 
         for (let j = 0; j < segmentCount + 1; j++) {
@@ -185,7 +181,7 @@ const EditorialWaveformHero = () => {
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className="font-reading text-muted mb-10 leading-relaxed"
+          className="font-mono text-muted mb-10 leading-relaxed"
           style={{
             fontSize: 'clamp(1rem, 1.2vw + 0.5rem, 1.25rem)',
           }}
@@ -195,7 +191,7 @@ const EditorialWaveformHero = () => {
 
         <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible">
           <button
-            className="inline-flex items-center gap-2 px-7 py-4 bg-ink text-paper font-mono text-[0.8125rem] tracking-wide hover:bg-sienna transition-colors duration-150"
+            className="inline-flex items-center gap-2 px-7 py-4 bg-ink text-paper font-mono text-[0.8125rem] tracking-wide hover:bg-accent-hover transition-colors duration-150"
             style={{ fontFamily: 'var(--font-jetbrains, monospace)' }}
           >
             Join the morning brief
