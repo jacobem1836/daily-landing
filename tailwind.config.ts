@@ -8,16 +8,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper:      'var(--paper)',
-        'paper-dark': 'var(--paper-dark)',
-        'paper-mid': 'var(--paper-mid)',
-        ink:        'var(--ink)',
-        'ink-light': 'var(--ink-light)',
-        'ink-mid':  'var(--ink-mid)',
-        accent:     'var(--accent)',
-        'accent-hover': 'var(--accent-hover)',
-        muted:      'var(--muted)',
-        rule:       'var(--rule)',
+        paper:      'oklch(var(--paper) / <alpha-value>)',
+        'paper-dark': 'oklch(var(--paper-dark) / <alpha-value>)',
+        'paper-mid': 'oklch(var(--paper-mid) / <alpha-value>)',
+        ink:        'oklch(var(--ink) / <alpha-value>)',
+        'ink-light': 'oklch(var(--ink-light) / <alpha-value>)',
+        'ink-mid':  'oklch(var(--ink-mid) / <alpha-value>)',
+        accent:     'oklch(var(--accent) / <alpha-value>)',
+        'accent-hover': 'oklch(var(--accent-hover) / <alpha-value>)',
+        muted:      'oklch(var(--muted) / <alpha-value>)',
+        rule:       'oklch(var(--rule) / <alpha-value>)',
       },
       fontFamily: {
         serif:   ['var(--font-fraunces)', 'Georgia', 'Times New Roman', 'serif'],

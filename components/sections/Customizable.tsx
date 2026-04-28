@@ -78,10 +78,10 @@ export default function Customizable() {
             <div
               key={item.label}
               className={`flex flex-col gap-2
-                ${i < 2 ? 'pt-0 pb-8' : 'py-6'}
+                ${i < 2 ? 'pt-0 pb-10' : 'py-8'}
                 ${i % 2 === 1 ? 'sm:border-l sm:pl-6 border-rule' : ''}
                 ${i >= 2 ? 'border-t border-rule' : ''}
-                ${i % 2 === 0 && i >= 2 ? 'sm:pr-6' : ''}
+                ${i % 2 === 0 ? 'sm:pr-6' : ''}
               `}
             >
               <p className="font-mono text-label text-ink-mid tracking-widest small-caps">
