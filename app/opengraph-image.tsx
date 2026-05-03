@@ -1,18 +1,10 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
 export const alt = 'dAIly — Your life briefs you.'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export default async function OGImage() {
-  // Load Fraunces Italic from Google Fonts for the headline
-  const frauncesItalic = fetch(
-    'https://fonts.gstatic.com/s/fraunces/v31/6NUu8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnDSg.woff2'
-  ).then((res) => res.arrayBuffer())
-
-  const [frauncesItalicData] = await Promise.all([frauncesItalic])
-
   return new ImageResponse(
     (
       <div
@@ -36,9 +28,9 @@ export default async function OGImage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
             <span
               style={{
-                fontFamily: 'Fraunces, Georgia, serif',
+                fontFamily: 'Georgia, serif',
                 fontSize: '28px',
-                fontWeight: 600,
+                fontWeight: 700,
                 color: '#1f1a14',
                 letterSpacing: '-0.02em',
               }}
@@ -69,9 +61,9 @@ export default async function OGImage() {
             <div style={{ width: '40px', height: '3px', backgroundColor: '#2a2420' }} />
             <span
               style={{
-                fontFamily: 'Fraunces, Georgia, serif',
+                fontFamily: 'Georgia, serif',
                 fontSize: '72px',
-                fontWeight: 300,
+                fontWeight: 400,
                 fontStyle: 'italic',
                 color: '#1f1a14',
                 lineHeight: 1.05,
@@ -133,14 +125,6 @@ export default async function OGImage() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: 'Fraunces',
-          data: frauncesItalicData,
-          style: 'italic',
-          weight: 300,
-        },
-      ],
     }
   )
 }
